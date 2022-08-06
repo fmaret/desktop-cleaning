@@ -1,0 +1,36 @@
+[
+    {
+        "rule": "*.lnk",
+        "out": "Launchers",
+        "names": "./launchers.txt"
+    },
+    {
+        "rule": "*.lnk",
+        "out": "Apps",
+        "names": "./apps.txt"
+    },
+    {
+        "rule": ["*.url", "*.lnk"],
+        "out": "Test"
+    },
+    {
+        "rule": "%cv%",
+        "out": "Cvs"
+    },
+    {
+        "rule": "*.pdf",
+        "out": "Documents"
+    },
+    {
+        "rule": [".png", ".jpg", ".jpeg", ".bmp", ".gif"],  
+        "out": "Images"
+    },
+    {
+        "rule": [".mp3", ".wav", ".flac"],
+        "out": "Musics"
+    },
+    {
+        "rule": ".mp4",
+        "out": "Videos"
+    }
+]
