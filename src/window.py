@@ -1,7 +1,12 @@
-import time
+#!/usr/bin/env python
 
+import time
 import commctrl as cc
 import win32gui as wgui
+import pyautogui as pag
+import os
+
+pag.FAILSAFE = False
 
 SEARCH_CRITERIA = (
     (0, "Progman", None),
@@ -22,36 +27,42 @@ class Window:
                     "Could not find child matching criteria: {:}".format(crit))
 
         self.window = window
-    
+
     def get_icons_length(self):
-        count = wgui.SendMessage(self.window, cc.LVM_GETITEMCOUNT, 0, 0) 
+        count = wgui.SendMessage(self.window, cc.LVM_GETITEMCOUNT, 0, 0)
 
         return count
-
 
     def moveIcon(self, index: int, x: int, y: int):
         lparam = y << 16 | x
 
         wgui.SendMessage(self.window, cc.LVM_SETITEMPOSITION, index, lparam)
 
+    def refresh_icons(self):
+        pag.click(x=99999, y=99999)
+
+        pag.keyDown("shift")
+        pag.press("f10")
+        pag.keyUp('shift')
+
+        pag.press("down", 3)
+        pag.press("enter")
+
 
 if __name__ == "__main__":
     window = Window()
 
     index = 1
-    
+
     count = window.get_icons_length()
     print(count)
 
-    # for i in range(count):
-    #     x = wgui.SendMessage(window.window, cc.LVM_UPDATE, i, 0)
+    window.refresh_icons()
 
-    u = wgui.SendMessage(window.window, cc.LVM_REDRAWITEMS, 1, count)
-    print(u)
-
-    x = 1620
+    x = 1920
     y = 1080
 
-    window.moveIcon(2, x, y)
+    for i in range(2):
+        window.moveIcon(i, x, y)
 
     time.sleep(0.1)
