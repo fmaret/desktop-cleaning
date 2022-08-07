@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os
 from rules import chooseFolder
 

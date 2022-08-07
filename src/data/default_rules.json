@@ -2,12 +2,12 @@
     {
         "rule": "*.lnk",
         "out": "Launchers",
-        "names": "./launchers.txt"
+        "names": "./data/launchers.txt"
     },
     {
         "rule": "*.lnk",
         "out": "Apps",
-        "names": "./apps.txt"
+        "names": "./data/apps.txt"
     },
     {
         "rule": ["*.url", "*.lnk"],

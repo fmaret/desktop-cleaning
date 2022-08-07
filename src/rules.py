@@ -30,7 +30,7 @@ def readJson(path: str):
         return json.load(f)
 
 
-rules = readJson("./rules.json")
+rules = readJson("./src/data/default_rules.json")
 
 
 def getNameAndExtension(file: str):
